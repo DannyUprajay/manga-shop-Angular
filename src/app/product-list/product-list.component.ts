@@ -27,6 +27,27 @@ export class ProductListComponent {
     console.log(this.panier);
   }
 
+  lessProduct(id: number){
+    let quantity = this.productService.fetchById(id - 1);
+    let price = quantity.price;
+    if(quantity.quantity  == 0 ){
+      quantity.quantity = 0;
+      quantity.price = price;
+    }else{
+      quantity.quantity -=1;
+      quantity.price -= price;
 
+    }
+  }
+
+  moreProduct(id: number){
+    let quantity = this.productService.fetchById(id - 1);
+    let price = quantity.price;
+    quantity.quantity +=1;
+    quantity.price += price;
+    console.log(price);
+    console.log(quantity);
+
+  }
 
 }
