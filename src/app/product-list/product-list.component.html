@@ -47,7 +47,7 @@
     <th scope="row">{{item.name}}</th>
     <td>{{item.quantity}}</td>
     <td>{{item.price}}</td>
-    <button>delete</button>
+    <button (click)="delete(item.id)">delete</button>
   </tr>
   <tr>
   </tbody>
