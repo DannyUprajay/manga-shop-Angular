@@ -52,7 +52,7 @@ export class ProductListComponent {
 
   delete(id: number){
     let item = this.productService.fetchById(id - 1);
-    delete item.id;
+    // delete item.id;
   }
 
 }
