@@ -30,21 +30,25 @@
 </div>
 
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div *ngFor="let item of panier">
-    <div class="col-md-3">
-      <div class="col-2">
-            <p>Nom : {{item.name}}</p>
-          </div>
-          <div  class="col-4">
-            <p>Prix : {{item.price}} </p>
-          </div>
-          <div class="col-2">
-            <p>Quantité : {{item.quantity}}</p>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Produits</th>
+    <th scope="col">Quantité</th>
+    <th scope="col">Prix</th>
+  </tr>
+  </thead>
+
+  <tbody div *ngFor="let item of panier">
+  <tr>
+    <th scope="row">{{item.name}}</th>
+    <td>{{item.quantity}}</td>
+    <td>{{item.price}}</td>
+    <button>delete</button>
+  </tr>
+  <tr>
+  </tbody>
+
+</table>
 

@@ -21,7 +21,7 @@ export class ProductListComponent {
   }
 
   add(id: number) {
-    let test = this.productService.fetchById(id);
+    let test = this.productService.fetchById(id - 1);
     this.panier.push(test);
     // this.panier = this.productService.fetchById(id - 1) ;
     console.log(this.panier);
