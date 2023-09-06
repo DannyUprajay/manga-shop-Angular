@@ -1,0 +1,50 @@
+<h1 class="text-center">Liste des mangas </h1>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let manga of productList" class="col-md-3">
+      <div class="card text-center pt-3">
+        <a routerLink="/mangas/{{manga.id}}">
+          <img style="width: 250px; height: 250px; object-fit: cover; " src="{{manga.image}}" class="rounded-top card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+          <div >
+            <p>{{manga.name}}</p>
+          </div>
+          <div >
+            <p>{{manga.price}}$</p>
+          </div>
+          <div>
+            <p> quantité : {{manga.quantity}}</p>
+          </div>
+          <div>
+            <button (click)="add(manga.id)" type="button" class="btn btn-primary">Panier</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <h3 class="text-center mt-5">panier</h3>
+</div>
+
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let item of panier">
+    <div class="col-md-3">
+      <div class="col-2">
+            <p>Nom : {{item.name}}</p>
+          </div>
+          <div  class="col-4">
+            <p>Prix : {{item.price}} </p>
+          </div>
+          <div class="col-2">
+            <p>Quantité : {{item.quantity}}</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
