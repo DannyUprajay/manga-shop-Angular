@@ -22,6 +22,7 @@ export class ProductListComponent {
 
   add(id: number) {
     let test = this.productService.fetchById(id - 1);
+
     this.panier.push(test);
     // this.panier = this.productService.fetchById(id - 1) ;
     console.log(this.panier);
@@ -52,7 +53,12 @@ export class ProductListComponent {
 
   delete(id: number){
     let item = this.productService.fetchById(id - 1);
-    // delete item.id;
+    let index = this.panier.indexOf(item);
+    console.log(item);
+    if (index !== -1) {
+      this.panier.splice(index, 1);
+      console.log(this.panier);
+    }
   }
 
 }
