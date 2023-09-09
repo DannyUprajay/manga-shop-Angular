@@ -12,19 +12,22 @@ export class ProductListComponent {
 
   productList: Product[] = PRODUCT;
 
-  // panier: Product = {} as Product;
+
   panier: Product[] = [];
+   sum:number = 0;
 
   constructor(
     private productService: ProductService
   ) {
+
   }
 
   add(id: number) {
     let test = this.productService.fetchById(id - 1);
-
     this.panier.push(test);
-    // this.panier = this.productService.fetchById(id - 1) ;
+
+    this.TotalPrice()
+
     console.log(this.panier);
   }
 
@@ -54,10 +57,17 @@ export class ProductListComponent {
   delete(id: number){
     let item = this.productService.fetchById(id - 1);
     let index = this.panier.indexOf(item);
-    console.log(item);
     if (index !== -1) {
       this.panier.splice(index, 1);
       console.log(this.panier);
+    }
+  }
+
+
+  TotalPrice(){
+    this.sum = 0;
+    for (const product of this.panier) {
+      this.sum += product.price;
     }
   }
 
