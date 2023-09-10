@@ -32,21 +32,20 @@ export class ProductListComponent {
   }
 
   lessProduct(id: number){
+
     let quantity = this.productService.fetchById(id - 1);
     let price = quantity.price;
-    if(quantity.quantity  == 0 ){
-      quantity.quantity = 0;
-      quantity.price = price;
-    }else{
+    if(quantity.quantity != 1 ){
       quantity.quantity -=1;
       quantity.price -= price;
-
     }
   }
 
   moreProduct(id: number){
+    let price = 0
     let quantity = this.productService.fetchById(id - 1);
-    let price = quantity.price;
+    quantity.price = quantity.price;
+     price = quantity.price;
     quantity.quantity +=1;
     quantity.price += price;
     console.log(price);
@@ -57,16 +56,17 @@ export class ProductListComponent {
   delete(id: number){
     let item = this.productService.fetchById(id - 1);
     let index = this.panier.indexOf(item);
-    if (index !== -1) {
+
       this.panier.splice(index, 1);
+    this.TotalPrice()
       console.log(this.panier);
-    }
+
   }
 
 
   TotalPrice(){
     this.sum = 0;
-    for (const product of this.panier) {
+    for (let product of this.panier) {
       this.sum += product.price;
     }
   }
